@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const cors = require('cors');
 const userRouter = require('./routes/user.route');
 const authRouter = require('./routes/auth.route');
 
@@ -16,6 +17,8 @@ mongoose
 const app = express();
 
 app.use(express.json());
+//app.use(cors({ origin: 'http://localhost:5173' })); // Allow requests from frontend origin
+
 
 app.listen(3000,()=>{
     console.log("server is running on port 3000");
