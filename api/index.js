@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 const userRouter = require('./routes/user.route');
 const authRouter = require('./routes/auth.route');
+const cookieParser = require('cookie-parser');
 
 dotenv.config();
 mongoose
@@ -16,8 +17,10 @@ mongoose
     });
 const app = express();
 
+
 app.use(express.json());
 //app.use(cors({ origin: 'http://localhost:5173' })); // Allow requests from frontend origin
+app.use(cookieParser());
 
 
 app.listen(3000,()=>{
